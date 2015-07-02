@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>less.js客户端用法</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div id="less.js">
+  <h1>less.js</h1>
+  <p>
+    在浏览器上跑 less.js 非常方便开发，但是不推荐用于生产环境。
+  </p>
+  <p>在客户端使用 Less.js 是最容易的方式，并且在开发阶段很方便，但是，在生产环境中，性能和可靠性非常重要，我们建议最好使用 node.js 或其它第三方工具进行预编译。</p>
+  <div id="how-to-use-it">
+    <p>那就开始吧，在页面中加入 .less 样式表的链接，并将 rel 属性设置为 "stylesheet/less"：</p>
+    <pre><code>&lt;link rel=&quot;stylesheet/less&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot; /&gt;</code></pre>
+    <p>接下来，下载 less.js 并通过 &lt;script&gt;&lt;/script&gt; 标签将其引入，放置于页面的 &lt;head&gt; 元素内：</p>
+    <pre><code>&lt;script src=&quot;less.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre>
+    <h2>提示</h2>
+    <p>务必确保在 less.js 之前加载你的样式表。</p>
+    <p>如果加载多个 .less 样式表文件，每个文件都会被单独编译。因此，一个文件中所定义的任何变量、mixin 或命名空间都无法在其它文件中访问。</p>
+  </div>
+  <div id="conclusion">
+    <h2>浏览器端设置参数</h2>
+    <p>
+    在 &lt;script src=&quot;less.js&quot;&gt;&lt;/script&gt; 之前 定义全局的 less 对象就可以为 Less.js 设置参数：
+    </p>
+    <pre><code>
+&lt;!-- set options before less.js script --&gt;
+&lt;script&gt;
+  less = {
+    env: &quot;development&quot;,
+    async: false,信息
+    fileAsync: false,
+    poll: 1000,
+    functions: {},
+    dumpLineNumbers: &quot;comments&quot;,
+    relativeUrls: false,
+    rootpath: &quot;:/a.com/&quot;
+  };
+&lt;/script&gt;
+&lt;script src="less.js"&gt;&lt;/script&gt;
+    </code></pre>
+  </div>
+</div>
+<style>
+body {
+    margin: auto;
+    padding-right: 1em;
+    padding-left: 1em;
+    max-width: 44em; 
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    font-family		: Verdana, sans-serif;
+    font-size		: 100%;
+    line-height		: 140%;
+    color		: #eee; 
+    background-color	: #22252a;
+}
+pre {
+    border		: 1px dotted gray;
+    background-color	: #444a50;
+    color		: #1111111;
+    padding		: 0.5em;
+}
+code {
+	font-family	: monospace;
+}
+a { 
+	text-decoration	: none;
+	color		: lightSteelBlue; 
+}
+a:hover {
+	text-decoration	: underline;
+}
+h1, h2, h3, h4, h5 { font-family: verdana;
+                     font-weight: bold;
+                     border-bottom: 1px dotted #eee;
+                     color: lightSteelBlue; }
+h1 {
+	color		: #cd5;
+        font-size	: 130%;
+}
+h1:nth-child(1) {
+	font-size	: 300%;
+	text-align	: center;
+	height		: 1em;
+}
+h2 {
+        font-size	: 110%;
+}
+
+h3 {
+        font-size	: 95%;
+}
+
+h4 {
+        font-size	: 90%;
+        font-style	: italic;
+}
+
+h5 {
+        font-size	: 90%;
+        font-style	: italic;
+}
+
+h1.title {
+        font-size	: 200%;
+        font-weight	: bold;
+        padding-top	: 0.2em;
+        padding-bottom	: 0.2em;
+        text-align	: left;
+        border		: none;
+}
+
+dt code {
+        font-weight	: bold;
+}
+dd p {
+        margin-top	: 0;
+}
+img {
+/*	border-color	: white;
+	border-style	: solid;
+*/}
+
+#footer {
+        padding-top	: 1em;
+        font-size	: 70%;
+        color		: gray;
+        text-align	: center;
+}
+
+</style>
+
+</body>
+</html>
+
